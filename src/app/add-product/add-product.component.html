@@ -1,0 +1,75 @@
+<div  style="left: 40%; position: absolute;">
+
+    <h3>Add Product</h3>
+
+    <div>
+        <form  style="left: -60%; position: absolute;" class="row" [formGroup]="formGroup" (ngSubmit)="addProduct()">
+            <table class="table">
+                <div class="row">
+                    <tr>
+                        <td colspan="2">
+                            <label>Name</label>
+                            <mat-form-field class="demo-full-width">
+                                <input formControlName="Name" matInput placeholder="Name">
+                            </mat-form-field>
+                            <mat-error>
+                                <span *ngIf="!formGroup.get('Name')?.valid && formGroup.get('Name')?.touched">Please
+                                    enter
+                                    Name</span>
+                            </mat-error>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label>ID</label>
+                            <mat-form-field class="demo-full-width">
+                                <input formControlName="ID" matInput placeholder="ID">
+                            </mat-form-field>
+                            <mat-error>
+                                <span *ngIf="!formGroup.get('ID')?.valid && formGroup.get('ID')?.touched">Please enter
+                                    ID</span>
+                            </mat-error>
+                        </td>
+                    </tr>
+                </div>
+                <div class="row">
+                    <tr>
+                        <td colspan="2">
+                            <label>Description</label>
+                            <mat-form-field class="demo-full-width">
+                                <input formControlName="Description" matInput placeholder="Description">
+                            </mat-form-field>
+                            <mat-error>
+                                <span
+                                    *ngIf="!formGroup.get('Description')?.valid && formGroup.get('Description')?.touched">Please
+                                    enter Description</span>
+                            </mat-error>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label>Price</label>
+                            <mat-form-field class="demo-full-width">
+                                <input formControlName="Price" matInput placeholder="Price">
+                            </mat-form-field>
+                            <mat-error>
+                                <span *ngIf="!formGroup.get('Price')?.valid && formGroup.get('Price')?.touched">Please
+                                    enter
+                                    Price</span>
+                            </mat-error>
+                        </td>
+                    </tr>
+                </div>
+                <tr>
+
+                    <td colspan="2" class="content-center">
+                        <button mat-raised-button color="accent" [disabled]="!formGroup?.valid">Submit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<!-- For User ID -->
+<h1>
+    Product List
+</h1>
+<div>
+    <button class="btn btn-info btn1" (click)="gotoAdd()">Add Product</button>
+</div>
+<mat-table [dataSource]="MyDataSource" matSort *ngIf="datapresent?.length > 0;else nodata">
+    <ng-container matColumnDef="ID">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let data"> {{data.ID}} </mat-cell>
+    </ng-container>
+
+    <!-- For Title -->
+    <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let data"> {{data.Name}} </mat-cell>
+    </ng-container>
+
+    <!-- For Completion Status -->
+    <ng-container matColumnDef="Price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+        <mat-cell *matCellDef="let data"> {{data.Price}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+        <mat-cell *matCellDef="let data"> {{data.Description}} </mat-cell>
+    </ng-container>
+    <!-- For Completion Status -->
+    <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let data">
+            <button mat-button color="primary" (click)="editProduct(data._id)"><i class="fa fa-edit"></i>Edit</button>
+            <button mat-button color="warn" (click)="deleteProduct(data._id)"><i class="fa fa-trash"></i>Delete</button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+<ng-template #nodata>
+    <h4>No Product Found</h4>
+</ng-template>
+<!-- To paginate between pages with search -->
+<mat-paginator *ngIf="datapresent?.length > 0" #paginator [length]="ProductsList && ProductsList.length" [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 20]">
+</mat-paginator>
+
+<!-- </mat-card> -->

@@ -1,0 +1,7 @@
+.btn1 {
+    position: fixed;
+    display: flex;
+    align-items: flex-end;
+    right: 5%;
+    top: 10%;
+}
